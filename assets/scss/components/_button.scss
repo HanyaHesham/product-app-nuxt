@@ -1,0 +1,23 @@
+.v-btn {
+  border-radius: 5px !important;
+  &.primary--text.v-btn--outlined:hover {
+    background: currentColor;
+    span {
+      color: #fff;
+    }
+  }
+}
+
+.v-btn--is-elevated,
+.v-pagination__navigation,
+.v-pagination__item {
+  box-shadow: none !important;
+}
+
+.v-list-item .v-btn {
+  margin: 10px 0;
+}
+
+.v-btn:before {
+  display: none;
+}

@@ -1,0 +1,29 @@
+$green-theme: (
+  primary: #27ae60,
+  secondary: rgb(41, 182, 100),
+  table-header: #e3f5ea,
+  table-hover: #fafdfd,
+  primary--dark: #27ae60,
+  secondary--dark: #014a83,
+  table-header--dark:
+    rgba(
+      $color: #27ae60,
+      $alpha: 0.15,
+    ),
+  table-hover--dark:
+    rgba(
+      $color: #27ae60,
+      $alpha: 0.05,
+    ),
+  info: #2196f3,
+  warning: #fb8c00,
+  error: #ef1e41,
+  green: #119146,
+  success: #119146,
+);
+
+@each $color, $value in $green-theme {
+  :export {
+    #{"" + $color}: $value;
+  }
+}

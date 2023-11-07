@@ -1,0 +1,29 @@
+$red-theme: (
+  primary: #e74c3c,
+  secondary: #c0392b,
+  table-header: #f6e1df,
+  table-hover: #fefbfb,
+  primary--dark: #e74c3c,
+  secondary--dark: #c0392b,
+  table-header--dark:
+    rgba(
+      $color: #e74c3c,
+      $alpha: 0.15,
+    ),
+  table-hover--dark:
+    rgba(
+      $color: #e74c3c,
+      $alpha: 0.05,
+    ),
+  info: #2196f3,
+  warning: #fb8c00,
+  error: #ef1e41,
+  green: #119146,
+  success: #119146,
+);
+
+@each $color, $value in $red-theme {
+  :export {
+    #{"" + $color}: $value;
+  }
+}

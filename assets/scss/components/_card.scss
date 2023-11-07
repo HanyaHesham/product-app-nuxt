@@ -1,0 +1,43 @@
+.v-sheet.v-card.borderd {
+  box-shadow: none !important;
+  border: 1px solid #e1e4e8 !important;
+  border-radius: 5px;
+  .card-title {
+    position: relative;
+    top: -20px;
+    left: -0.5em;
+    transform: translateY(-50%);
+    background: #fff;
+    display: inline-block;
+    padding: 0 0.5em;
+  }
+}
+// .v-text-field.v-text-field--enclosed fieldset {
+//   border-color: #e0e0e0 !important;
+// }
+.v-snack--active {
+  .v-snack__content {
+    display: flex;
+    justify-content: space-between !important;
+    align-items: center;
+  }
+}
+.v-dialog {
+  border-radius: 5px !important;
+}
+
+html[dir='ltr'] {
+  .v-sheet.v-card.borderd {
+    .card-title {
+      left: -0.5em;
+    }
+  }
+}
+
+html[dir='rtl'] {
+  .v-sheet.v-card.borderd {
+    .card-title {
+      right: -0.5em;
+    }
+  }
+}

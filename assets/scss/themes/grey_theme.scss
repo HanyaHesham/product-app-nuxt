@@ -1,0 +1,29 @@
+$grey-theme: (
+  primary: #ecf0f1,
+  secondary: #bdc3c7,
+  table-header: #f6e1df,
+  table-hover: #fefbfb,
+  primary--dark: #ecf0f1,
+  secondary--dark: #bdc3c7,
+  table-header--dark:
+    rgba(
+      $color: #ecf0f1,
+      $alpha: 0.15,
+    ),
+  table-hover--dark:
+    rgba(
+      $color: #ecf0f1,
+      $alpha: 0.05,
+    ),
+  info: #2196f3,
+  warning: #fb8c00,
+  error: #ef1e41,
+  green: #119146,
+  success: #119146,
+);
+
+@each $color, $value in $grey-theme {
+  :export {
+    #{"" + $color}: $value;
+  }
+}

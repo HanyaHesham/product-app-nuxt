@@ -1,0 +1,29 @@
+$purple-theme: (
+  primary: #3f68ba,
+  secondary: #879ddd,
+  table-header: #e2e8f5,
+  table-hover: #f5f7fb,
+  primary--dark: #3f68ba,
+  secondary--dark: #879ddd,
+  table-header--dark:
+    rgba(
+      $color: #3f68ba,
+      $alpha: 0.15,
+    ),
+  table-hover--dark:
+    rgba(
+      $color: #3f68ba,
+      $alpha: 0.05,
+    ),
+  info: #2196f3,
+  warning: #fb8c00,
+  error: #ef1e41,
+  green: #119146,
+  success: #119146,
+);
+
+@each $color, $value in $purple-theme {
+  :export {
+    #{"" + $color}: $value;
+  }
+}

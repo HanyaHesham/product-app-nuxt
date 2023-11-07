@@ -1,0 +1,37 @@
+$pink-theme: (
+  primary: #fd70b6,
+  secondary: #f788bf,
+  table-header:
+    rgba(
+      $color: #fd70b6,
+      $alpha: 0.2,
+    ),
+  table-hover:
+    rgba(
+      $color: #fd70b6,
+      $alpha: 0.05,
+    ),
+  primary--dark: #fd70b6,
+  secondary--dark: #f788bf,
+  table-header--dark:
+    rgba(
+      $color: #fd70b6,
+      $alpha: 0.15,
+    ),
+  table-hover--dark:
+    rgba(
+      $color: #fd70b6,
+      $alpha: 0.05,
+    ),
+  info: #2196f3,
+  warning: #fb8c00,
+  error: #ef1e41,
+  green: #119146,
+  success: #119146,
+);
+
+@each $color, $value in $pink-theme {
+  :export {
+    #{"" + $color}: $value;
+  }
+}

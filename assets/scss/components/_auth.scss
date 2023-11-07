@@ -1,0 +1,80 @@
+.auth_vector {
+}
+
+.auth_vector {
+  min-height: 90vh;
+  background-image: url(~@/assets/imgs/login-vector.png);
+  background-size: contain;
+  background-position: center;
+
+  .v-image__image--cover {
+    background-size: auto;
+  }
+  &--verification {
+    background-image: url(~@/assets/imgs/verification.png);
+  }
+}
+
+.auth {
+  .v-input--selection-controls {
+    margin-top: 0 !important;
+    padding: 0 !important;
+  }
+  .v-tab {
+    z-index: 1;
+    text-transform: capitalize;
+    &:before {
+      background: transparent;
+    }
+    .v-ripple__container {
+      display: none;
+    }
+  }
+  .v-tabs-bar:not(.v-tabs-bar--show-arrows):not(.v-slide-group--is-overflowing)
+    > .v-slide-group__wrapper
+    > .v-tabs-bar__content
+    > .v-tabs-slider-wrapper
+    + .v-tab {
+    margin-left: 0 !important;
+  }
+  .v-tabs-slider {
+    border-radius: 7px;
+  }
+  .v-slide-group__content {
+    border-radius: 10px;
+  }
+  .v-tab--active {
+    color: #fff;
+  }
+  .v-tabs-slider-wrapper {
+    height: 46px !important;
+  }
+  .react-code-input-container {
+    width: 100% !important;
+    text-align: center;
+    .react-code-input {
+      input {
+        border-radius: 5px !important;
+        margin: 5px;
+        border: 1px solid #a8adb7 !important;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+  .counter {
+    i {
+      margin-right: 5px;
+    }
+  }
+}
+
+.v-sheet.auth.v-card:not(.v-sheet--outlined) {
+  box-shadow: 0px 0px 0px 0px rgb(0 0 0 / 10%), 0px 0px 0px 0px rgb(0 0 0 / 10%),
+    0px 0px 3px 0px rgb(0 0 0 / 10%);
+}
+
+.logo {
+  border-radius: 10px !important;
+}

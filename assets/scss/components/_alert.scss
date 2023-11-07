@@ -1,0 +1,16 @@
+.swal2-styled.swal2-confirm {
+  background: #009fa0 !important;
+}
+
+.swal2-styled.swal2-confirm:focus {
+  box-shadow: 0 0 0 3px rgba(0, 159, 160, 0.5) !important;
+}
+
+.swal2-title {
+  font-size: 22px !important;
+  font-weight: normal !important;
+}
+
+.swal2-container.swal2-center > .swal2-popup {
+  padding: 20px 0 30px;
+}
