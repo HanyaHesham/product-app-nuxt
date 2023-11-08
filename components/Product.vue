@@ -31,7 +31,7 @@ const deleteProduct = async (productId) => {
     >
       <h2 class="text-xl font-bold mb-2">Product Name: {{ product.name }}</h2>
       <p class="text-gray-700 mb-4">Product Price: {{ product.price }}</p>
-      <NuxtLink :to="`/products/${product.id}`">
+      <NuxtLink :to="`/products/${product.id}/view`">
         <button
           class="mx-1 inline-block bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded mb-8"
         >
