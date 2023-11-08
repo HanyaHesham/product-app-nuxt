@@ -30,7 +30,7 @@ export default {
   <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 mt-20">
     <h2 class="text-3xl font-bold mt-8">All Categories</h2>
     <section>
-      <Product :items="categories" :type="type"/>
+      <Card :items="categories" :type="type" />
     </section>
   </div>
 </template>
