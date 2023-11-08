@@ -22,26 +22,32 @@ const deleteItem = async (itemId) => {
 
 <template>
   <div>
-    <div
-      v-for="item in items"
-      :key="item.id"
-      class="product-container p-6 mb-3 mt-3"
-    >
-      <h2 class="text-xl font-bold mb-2">Name: {{ item.name }}</h2>
-      <p class="text-gray-700 mb-4">Price: {{ item.price }}</p>
-      <NuxtLink :to="`/${props.type}/${item.id}/view`">
-        <button
-          class="mx-1 inline-block bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded mb-8"
-        >
-          Read More
-        </button>
-      </NuxtLink>
-      <button
-        class="mx-1 inline-block bg-red-500 hover:bg-red-700 text-white py-2 px-4 rounded mb-8"
-        @click="deleteItem(item.id)"
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-5">
+      <div
+        v-for="item in items"
+        :key="item.id"
+        class="product-container mb-3 mt-3"
       >
-        Delete
-      </button>
+        <h2 class="text-xl font-bold mb-2">Name: {{ item.name }}</h2>
+        <template v-if="props.type === 'products'">
+          <p class="text-gray-700 mb-4">Price: {{ item.price }}</p>
+        </template>
+        <div class="mt-3">
+          <NuxtLink :to="`/${props.type}/${item.id}/view`">
+            <button
+              class="mx-1 inline-block bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded mb-8"
+            >
+              Read More
+            </button>
+          </NuxtLink>
+          <button
+            class="mx-1 inline-block bg-red-500 hover:bg-red-700 text-white py-2 px-4 rounded mb-8"
+            @click="deleteItem(item.id)"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
