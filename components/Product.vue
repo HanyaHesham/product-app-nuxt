@@ -27,7 +27,7 @@ const deleteProduct = async (productId) => {
     <div
       v-for="product in products"
       :key="product.id"
-      class="product-container p-6"
+      class="product-container p-6 mb-3 mt-3"
     >
       <h2 class="text-xl font-bold mb-2">Product Name: {{ product.name }}</h2>
       <p class="text-gray-700 mb-4">Product Price: {{ product.price }}</p>
