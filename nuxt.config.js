@@ -22,6 +22,10 @@ export default {
       { name: "format-detection", content: "telephone=no" },
     ],
     link: [
+      {
+        rel: "stylesheet",
+        href: "https://unpkg.com/vue-toastify/dist/vue-toastify.css",
+      },
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
       {
         rel: "stylesheet",

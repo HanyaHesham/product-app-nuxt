@@ -1,16 +1,3 @@
 @charset 'UTF-8';
 
-// 1. Configuration and helpers
-@import '../variables', 'abstracts/mixins', './themes_variables.scss';
-
-// 2. Vendors
-@import 'vendors/normalize';
-
-// 3. Base stuff
-@import 'base/base', 'base/helpers', './animation';
-
-// 5. Components
-@import 'components/themes', 'components/button', 'components/fileUpload',
-  'components/fileDrag', 'components/sideBar', 'components/appBar',
-  'components/table', 'components/card', 'components/panel', 'components/alert',
-  'components/auth', 'components/dropzone', 'components/footer';
+@import "../variables", "abstracts/mixins", "base/base";

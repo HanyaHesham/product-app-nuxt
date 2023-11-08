@@ -1,3 +1,40 @@
+<script setup>
+import { useRouter } from "vue-router";
+import axios from "axios";
+
+const email = ref("");
+const password = ref("");
+
+const router = useRouter();
+
+const login = async (event) => {
+  event.preventDefault();
+  if (!email.value || !password.value) {
+    console.log("Please enter email and password");
+    return;
+  }
+
+  try {
+    const response = await axios.post("https://task.cayan.co/api/login", {
+      email: email.value,
+      password: password.value,
+    });
+
+    const token = response.data.data.token;
+
+    if (!token) {
+      console.error("Invalid response from server");
+      return;
+    }
+
+    localStorage.setItem("token", token);
+    router.push("/");
+  } catch (error) {
+    console.error(error);
+  }
+};
+</script>
+
 <template>
   <div
     class="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8"
@@ -76,49 +113,3 @@
     </div>
   </div>
 </template>
-
-<script setup>
-import { useRouter } from "vue-router";
-import axios from "axios";
-
-const email = ref("");
-const password = ref("");
-
-const router = useRouter();
-
-const login = async (event) => {
-  event.preventDefault();
-
-  if (!email.value || !password.value) {
-    // Handle form validation error
-    // For example, show an error message to the user
-    console.error("Please enter email and password");
-    return;
-  }
-
-  try {
-    const response = await axios.post("https://task.cayan.co/api/login", {
-      email: email.value,
-      password: password.value,
-    });
-
-    const token = response.data.data.token;
-
-    // Check if the token is received
-    if (!token) {
-      // Handle login error
-      console.error("Invalid response from server");
-      return;
-    }
-
-    // Store the token in local storage
-    localStorage.setItem("token", token);
-
-    // Redirect to another page after successful login
-    router.push("/");
-  } catch (error) {
-    console.error(error);
-    // Handle login error
-  }
-};
-</script>
