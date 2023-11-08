@@ -16,8 +16,8 @@ const navigation = [
     to: "/products",
   },
   {
-    name: "Services",
-    to: "/services",
+    name: "Categories",
+    to: "/categories",
   },
 ];
 
