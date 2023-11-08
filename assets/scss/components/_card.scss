@@ -1,0 +1,13 @@
+.card-container {
+  border-radius: 24px;
+  height: fit-content;
+  padding: 40px 24px;
+  box-shadow: 0px 1.8882px 15.1056px rgba(0, 0, 0, 0.05);
+  position: relative;
+  transition: transform 0.3s ease-in-out;
+  background-color: $lightGray;
+
+  &:hover {
+    transform: translateY(-10px);
+  }
+}

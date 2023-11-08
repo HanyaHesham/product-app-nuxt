@@ -29,7 +29,7 @@ export default {
 
 <template>
   <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 mt-20">
-    <div class="product-container p-6 mb-3 mt-3">
+    <div class="card-container p-6 mb-3 mt-3">
       <h2 class="text-xl font-bold mb-2">Category Name: {{ category.name }}</h2>
       <NuxtLink :to="`/categories`">
         <button

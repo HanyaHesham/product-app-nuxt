@@ -1,3 +1,6 @@
 @charset 'UTF-8';
 
 @import "../variables", "abstracts/mixins", "base/base";
+
+//components
+@import "components/card";
