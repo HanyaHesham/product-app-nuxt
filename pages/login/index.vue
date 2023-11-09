@@ -41,13 +41,11 @@ const login = async (event) => {
   >
     <div class="sm:mx-auto sm:w-full sm:max-w-sm">
       <h2
-        class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900"
+        class="mt-10 mb-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900"
       >
         Sign in to your account
       </h2>
-    </div>
 
-    <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
       <form class="space-y-6" @submit="login" method="POST">
         <div>
           <label
@@ -101,7 +99,7 @@ const login = async (event) => {
         </div>
       </form>
 
-      <p class="mt-10 text-center text-sm text-gray-500">
+      <!-- <p class="mt-10 text-center text-sm text-gray-500">
         Not a member?
         <a
           href="/register"
@@ -109,7 +107,7 @@ const login = async (event) => {
         >
           Register Now
         </a>
-      </p>
+      </p> -->
     </div>
   </div>
 </template>

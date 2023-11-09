@@ -5,24 +5,42 @@ export default {
   data() {
     return {
       products: [],
-      type: "product",
-      toUrl: "products",
+      type: "products",
     };
   },
+  methods: {
+    async handleShowProducts() {
+      const token = localStorage.getItem("token");
+      try {
+        const response = await axios.get("https://task.cayan.co/api/product", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        this.products = response.data.data;
+      } catch (error) {
+        console.error(error);
+        this.products = [];
+      }
+    },
 
-  async created() {
-    const token = localStorage.getItem("token");
-    try {
-      const response = await axios.get("https://task.cayan.co/api/product", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      this.products = response.data.data;
-    } catch (error) {
-      console.error(error);
-      this.products = [];
-    }
+    async handleDeleteProduct(itemId) {
+      try {
+        await axios.delete(`https://task.cayan.co/api/product/${itemId}`, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        });
+
+        this.handleShowProducts();
+      } catch (error) {
+        console.error(error);
+      }
+    },
+  },
+
+  created() {
+    this.handleShowProducts();
   },
 };
 </script>
@@ -40,7 +58,7 @@ export default {
       </NuxtLink>
     </div>
     <section>
-      <Card :items="products" :type="type" :toUrl="toUrl" />
+      <Card :items="products" :type="type" :deleteItem="handleDeleteProduct" />
     </section>
   </div>
 </template>

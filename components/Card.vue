@@ -1,23 +1,7 @@
 <script setup>
-import axios from "axios";
 import { defineProps } from "vue";
 
-const props = defineProps(["items", "type", "toUrl"]);
-
-const deleteItem = async (itemId) => {
-  const token = localStorage.getItem("token");
-  try {
-    await axios.delete(`https://task.cayan.co/api/${props.type}/${itemId}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    // Remove the deleted item from the items array
-    props.items = props.items.filter((item) => item.id !== itemId);
-  } catch (error) {
-    console.log(error);
-  }
-};
+const props = defineProps(["items", "type", "deleteItem"]);
 </script>
 
 <template>
@@ -28,14 +12,15 @@ const deleteItem = async (itemId) => {
         :key="item.id"
         class="card-container mb-3 mt-3"
       >
-        <NuxtLink :to="`/${props.toUrl}/${item.id}/view`">
+        <NuxtLink :to="`/${props.type}/${item.id}/view`">
           <h2 class="text-xl font-bold mb-2">Name: {{ item.name }}</h2>
-          <template v-if="props.toUrl === 'products'">
+          <template v-if="props.type === 'products'">
             <p class="text-gray-700 mb-4">Price: {{ item.price }}</p>
           </template>
         </NuxtLink>
+
         <div class="mt-3">
-          <NuxtLink :to="`/${props.toUrl}/${item.id}/edit`">
+          <NuxtLink :to="`/${props.type}/${item.id}/edit`">
             <button
               class="mx-1 inline-block bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded mb-8"
             >
@@ -44,7 +29,7 @@ const deleteItem = async (itemId) => {
           </NuxtLink>
           <button
             class="mx-1 inline-block bg-red-500 hover:bg-red-700 text-white py-2 px-4 rounded mb-8"
-            @click="deleteItem(item.id)"
+            @click="props.deleteItem(item.id)"
           >
             Delete
           </button>
