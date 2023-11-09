@@ -33,8 +33,9 @@ export default {
 <template>
   <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 mt-20">
     <div class="card p-6 mb-3 mt-3">
-      <h3 class="font-bold border-b-2 mb-4 pb-2">Category Name:</h3>
-      <p class="mb-7">{{ category.name }}</p>
+      <h3 class="font-bold border-b-2 mb-4 pb-2">
+        {{ category.name }}
+      </h3>
       <NuxtLink :to="`/categories`">
         <button
           class="mx-1 inline-block bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded mb-8"
