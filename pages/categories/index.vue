@@ -5,7 +5,8 @@ export default {
   data() {
     return {
       categories: [],
-      type: "categories",
+      type: "category",
+      toUrl: "categories",
     };
   },
 
@@ -39,7 +40,7 @@ export default {
       </NuxtLink>
     </div>
     <section>
-      <Card :items="categories" :type="type" />
+      <Card :items="categories" :type="type" :toUrl="toUrl" />
     </section>
   </div>
 </template>

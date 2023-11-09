@@ -13,11 +13,14 @@ export default {
     const { id } = useRoute().params;
     const token = localStorage.getItem("token");
     try {
-      await axios.get(`https://task.cayan.co/api/category/${id}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await axios.get(
+        `https://task.cayan.co/api/category/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       this.category = response.data.data;
     } catch (error) {
       console.error(error);
@@ -29,8 +32,9 @@ export default {
 
 <template>
   <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 mt-20">
-    <div class="card-container p-6 mb-3 mt-3">
-      <h2 class="text-xl font-bold mb-2">Category Name: {{ category.name }}</h2>
+    <div class="card p-6 mb-3 mt-3">
+      <h3 class="font-bold border-b-2 mb-4 pb-2">Category Name:</h3>
+      <p class="mb-7">{{ category.name }}</p>
       <NuxtLink :to="`/categories`">
         <button
           class="mx-1 inline-block bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded mb-8"
