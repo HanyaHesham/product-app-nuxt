@@ -26,11 +26,16 @@ const login = async (event) => {
       console.error("Invalid response from server");
       return;
     }
-
+    alert("welcome");
     localStorage.setItem("token", token);
     router.push("/");
   } catch (error) {
-    console.error(error);
+    if (error.response && error.response.status === 400) {
+      console.log("Bad Request");
+      alert("bad request");
+    } else {
+      console.error(error);
+    }
   }
 };
 </script>

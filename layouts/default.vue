@@ -34,7 +34,12 @@ const isAuthenticated = () => {
   // Check if the token exists in local storage
   if (typeof localStorage !== "undefined") {
     const token = localStorage.getItem("token");
-    return !!token;
+    if (token) {
+      return true;
+    } else {
+      router.push("/login");
+      return false;
+    }
   }
   return false;
 };
