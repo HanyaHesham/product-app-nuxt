@@ -74,7 +74,7 @@ onMounted(handleShowProduct);
 </script>
 
 <template>
-  <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 mt-20">
+  <div class="main-container mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 mt-20">
     <div class="card p-6 mb-3 mt-3">
       <h3 class="font-bold border-b-2 mb-4 pb-2">Add Product</h3>
 

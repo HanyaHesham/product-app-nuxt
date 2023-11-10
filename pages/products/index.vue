@@ -46,7 +46,7 @@ export default {
 </script>
 
 <template>
-  <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 mt-20">
+  <div class="main-container mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 mt-20">
     <div class="relative flex items-center justify-between mt-8 mb-2">
       <h2 class="text-3xl font-bold">All Products</h2>
       <NuxtLink :to="`/products/add`">

@@ -8,6 +8,20 @@ $english_font: "Cairo", sans-serif;
   font-family: $english_font;
 }
 
+.main-container {
+  opacity: 0;
+  animation: fadeInAnimation 1s ease-in forwards;
+}
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .router-link-active {
   background-color: #374151;
   color: white;
