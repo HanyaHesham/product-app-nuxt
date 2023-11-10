@@ -36,6 +36,21 @@ export default {
       <h3 class="font-bold border-b-2 mb-4 pb-2">
         {{ category.name }}
       </h3>
+      <template
+        v-if="category && category.products && category.products.length > 0"
+      >
+        <p class="text-gray-700 text-xl">Products:</p>
+        <ul class="text-gray-700 text-xl my-7 list-disc">
+          <li
+            class="mx-4"
+            v-for="product in category.products"
+            :key="product.id"
+            :value="product.id"
+          >
+            {{ product.name }}
+          </li>
+        </ul>
+      </template>
       <NuxtLink :to="`/categories`">
         <button
           class="mx-1 inline-block bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded mb-8"

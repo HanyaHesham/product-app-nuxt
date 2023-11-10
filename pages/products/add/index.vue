@@ -1,11 +1,12 @@
 <script setup>
 import axios from "axios";
 import { ref } from "vue";
+import { useRoute } from "vue-router";
 
 const name = ref("");
 const price = ref("");
 const categories = ref([]);
-const selectedCategory = ref("");
+const selectedCategories = ref([]);
 
 const handleShowCategories = async () => {
   const token = localStorage.getItem("token");
@@ -30,7 +31,10 @@ const addProduct = async (event) => {
   const formData = new FormData();
   formData.append("name", name.value);
   formData.append("price", price.value);
-  formData.append("category_id", selectedCategory.value);
+  selectedCategories &&
+    selectedCategories.value.forEach((categoryId) => {
+      formData.append("categories[]", categoryId);
+    });
 
   try {
     await axios.post("https://task.cayan.co/api/product", formData, {
@@ -43,7 +47,7 @@ const addProduct = async (event) => {
 
     name.value = "";
     price.value = "";
-    selectedCategory.value = "";
+    selectedCategories.value = [];
   } catch (error) {
     console.error(error);
   }
@@ -110,10 +114,10 @@ onMounted(handleShowCategories);
             <select
               id="categories"
               name="categories"
-              v-model="selectedCategory"
+              v-model="selectedCategories"
+              multiple
               class="block p-1 py-2.5 w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
             >
-              <option value="" disabled>Select a category</option>
               <option
                 v-for="category in categories"
                 :key="category.id"
